@@ -1,0 +1,348 @@
+*, *::after, *::before {box-sizing: border-box;}
+
+html {font-size: 16px; }
+
+img {max-width: 100%;}
+
+a {text-decoration: none;}
+
+body {background-color: black;}
+
+:root {
+    --cor-titulo1: white;
+    --cor-titulo2: black;
+    --cor-shift1: rgba(255, 0, 199, 1);
+    --cor-shift2: rgba(0, 178, 255, 1);
+    --cor-shift3: rgba(255, 245, 0, 1);
+    --cor-shift4: rgba(9, 181, 109, 1);
+    --cor-shift5: rgba(255, 153, 0, 1);
+}
+
+body, h1, h2, p, figure, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; /*Remove marcadores da lista ul */
+}
+
+/* Formatando o topo e o menu */
+.topo {
+    /* Deixar o topo acima de outros elementos */
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+
+    .limitador {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;     
+    }
+
+    a {color: var(--cor-titulo2);} /* Trocando a cor padrão dos links(roxo) por preto */
+}
+
+.limitador {
+    /* Regra de uso geral do limitador */
+    width: 95vw;
+    margin: auto;
+}
+
+.titulo-menu, h2  {
+    font-weight: normal; /* Tirando o negrito */
+    font-size: 1.4rem;
+    padding: 1rem;
+}
+
+.logo {
+    padding-left: 25px;
+    width: 140px;
+    object-fit: cover; 
+}
+
+.links-menu {
+    display: none; /* Ocultando os itens do menu */
+    a {
+        color: var(--cor-titulo2);
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.links-menu.aberto {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: var(--cor-titulo1);
+
+    li:nth-child(1){
+        border-bottom: solid 1px var(--cor-shift2);
+    }
+    li:nth-child(1){
+        border-top: solid 1px var(--cor-shift1);
+    }
+    
+    li:nth-child(2){
+        border-bottom: solid 1px var(--cor-shift5);
+    }
+    li:nth-child(3){
+        border-bottom: solid 1px var(--cor-shift4);
+    }
+    li:nth-child(4){
+        border-bottom: solid 1px var(--cor-shift3);
+    }
+}
+
+
+/* Formatando as duas fotos em destaque */
+.destaque-fotos {
+    display: flex;
+    width: 50%;
+}
+
+#terceira-imagem {display: none;}
+
+/* Formatando o bloco com a frase de detasque */
+.destaque-shift {
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+}
+
+
+/* Formatando as categorias */
+article, h2 {
+    color: var(--cor-titulo1);
+    text-align: center;
+}
+
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    
+    .section {
+        width: 34%; /* Fazendo cada section ocupar 40% do espaço*/
+        padding: 10px;
+        margin: auto; /* Distribuindo igualmente as margens da esquerda e direita*/
+        color: var(--cor-titulo2); 
+        border-radius: 4px; 
+        background-color: rgba(255, 255, 255, 0.952);
+      }
+      #trico:hover{
+        background-color: var(--cor-shift1);
+      }
+
+
+    #ecobags:hover{
+        background-color: var(--cor-shift2);
+    }
+
+    #tie-dye:hover{
+        background-color: var(--cor-shift4);
+    }
+
+    #croche:hover{
+        background-color: var(--cor-shift5);
+    }
+
+    .animate__animated{
+        animation: none;
+    }
+}
+
+/* .section:hover {background-color: var(--cor-shift5);} */
+
+/* Formatando os queridinhos */
+.os-queridinhos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  
+  img {
+    object-fit: cover;
+    max-width: 40%;
+    margin: 10px;
+    border-radius: 4px;
+}}
+
+/* Formatando as linhas de separação */
+.linha {
+   display: flex;
+   align-items: center;
+   justify-content: center; 
+
+.linha-queridinhos {
+    background-color: white;
+    border: solid 1px;
+    flex: 1; 
+}
+.linha-categorias {
+    background-color: white;
+    border: solid 1px;
+    flex: 1;
+}}
+
+/* Formatando o footer */
+footer {
+    color: var(--cor-titulo2);
+    background-color: white;
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+
+    .logo {
+        margin:auto;
+        margin-top: 15px;
+        width: 80px;
+        object-fit: cover;
+    }
+
+    .social-media {
+        a { padding: 5px;}
+    }
+  
+    .separador {
+        background-color: rgb(0, 0, 0);
+        width: 1px;
+    }
+
+    .sobre-nos { margin-right: 5px;}
+
+    .sobre-nos, .menu-footer, .social-media{
+        flex: 1; /* Dividindo o espaço igualmente antre eles */ 
+    }
+    .menu-footer{
+        padding-bottom: 10px;
+    }
+
+    .sobre-nos, .social-media {text-align: center;}
+
+    h3 {text-align: center;}
+
+    ul li {padding-left: 10px;}
+    a {color: var(--cor-titulo2);}
+}
+
+.social-media img{
+    max-width: 20%;
+}
+
+/* Ativado no Mobile */
+.animacao {
+    animation-name: aparecer;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes aparecer {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+      }
+    
+      50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+      }
+    
+      to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+      }
+}
+
+
+
+@media screen and (min-width: 600px){
+    .menu {
+        ul li {
+            border-left: solid 2px rgb(0, 0, 0);
+            margin-bottom: 8px;
+        }
+    
+        ul li:last-child {
+            border-right: solid 2px rgb(0, 0, 0);
+        }
+    }
+
+    /* Desativado no Desktop */
+    .animacao {
+        animation: none;
+    }
+
+    footer {
+        width: 60%;
+    }
+    .titulo-menu {display: none;}
+
+    .links-menu {
+        display: flex;
+        li {
+            width: 100%;
+        }
+        font-size: 1.5rem;
+    }
+
+    .menu {width: 80%;}
+
+    .destaque-fotos {max-width: 33.3%;}
+
+    #terceira-imagem {display: inline;}
+
+    .os-queridinhos {img {max-width: 30%;}}
+    
+    .limitador {
+        height: 15vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    h2 {font-size: 1.7rem;}
+
+    .destaque-shift {font-size: 1.7rem;}
+
+    .categorias {
+        
+       .section {
+        font-size: 1.5rem;
+        height: 70px;
+        padding: 20px;
+    }
+
+    .animate__animated{
+        animation: animate__pulse 2s infinite;
+    }
+
+}
+
+
+    .rodape {
+        h3 {font-size: 1.7rem;}
+
+        .menu-footer {font-size: 1.3rem;}
+
+        p {font-size: 1.3rem;}
+
+        .logo {width: 100%;}
+    }
+        
+} 
+
+@media screen and (min-width:1000px) {
+    html {font-size: 18px;}
+
+    
+}
+
+
